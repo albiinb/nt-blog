@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 NT Blog
 
-## Getting Started
+## 📝 Project Description
 
-First, run the development server:
+> A modern blog website built with Next.js (App Router) for showing and filtering news.
+
+---
+
+## ⚙️ Local Setup
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/albiinb/nt-blog.git
+cd nt-blog
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm install
+or
+yarn install
+or
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Create environment variables
 
-## Learn More
+Create a .env.local file in the root directory and add your environment variables:
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEWS_API_KEY=API_KEY
+NEWS_API_BACKEND_URL=https://newsapi.org
+APP_ENV=dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🧠 Tip: Never commit your .env.local file to Git. Use .env.example to share only variable
+names without secrets.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Run the development server
 
-## Deploy on Vercel
+```
+npm run dev
+or
+yarn dev
+or
+pnpm dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Then open http://localhost:3000 to view your app.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧩 Technologies Used
+
+This project is built using modern web technologies and libraries:
+
+- Next.js 14+ (App Router) — React framework for full-stack applications
+
+- Tailwind CSS — Utility-first CSS framework
+
+- Zustand — Lightweight state management
+
+- shadcn/ui — Beautiful, accessible UI components
+
+- TypeScript — Type-safe JavaScript
+
+- ESLint & Prettier — Code linting and formatting
+
+- Axios — HTTP client for API requests
+
+---
+
+## 📁 Project Structure
+
+Example folder structure (customize as needed):
+
+```
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── (routes)/
+│   │   ├── dashboard/
+│   │   ├── settings/
+│   │   └── ...
+│
+├── components/
+│   ├── ui/               # shadcn components
+│   ├── layout/           # header, sidebar, etc.
+│   └── shared/           # reusable components
+│
+├── hooks/                # custom React hooks
+├── lib/                  # helper functions, API clients
+├── store/                # zustand stores
+├── styles/               # global styles, Tailwind config
+└── types/                # TypeScript interfaces and types
+```
+
+---
+
+## 🔗 Resources
+
+| Resource               | URL                                                      |
+| ---------------------- | -------------------------------------------------------- |
+| 🧠 **Development URL** | [https://dev.example.com](https://dev.example.com)       |
+| 🎨 **Figma Design**    | [https://figma.com/file/...](https://figma.com/file/...) |
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License . You’re free to use, modify, and
+distribute this software with attribution.
