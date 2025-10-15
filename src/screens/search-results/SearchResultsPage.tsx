@@ -1,7 +1,9 @@
+import { AllPostsSection } from '@/components/sections/all-posts/AllPostsSection'
+
 export const SearchResultsPage = () => {
   return (
     <div>
-      <h1>This is Search Results Page</h1>
+      <AllPostsSection />
     </div>
   )
 }

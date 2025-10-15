@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist_Mono, Inter } from 'next/font/google'
+import { Footer } from '@/components/layout/footer/Footer'
+import { Header } from '@/components/layout/header/Header'
 import './globals.css'
 
 const interFont = Inter({
@@ -29,7 +31,9 @@ export default function RootLayout({
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
       </head>
       <body className={`${interFont.variable} ${geistMonoFont.variable} antialiased`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
