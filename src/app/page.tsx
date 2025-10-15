@@ -1,7 +1,5 @@
+import { HomePage } from '@/screens/home/HomePage'
+
 export default function Home() {
-  return (
-    <div>
-      <h1>NT Blog</h1>
-    </div>
-  )
+  return <HomePage />
 }
