@@ -104,10 +104,10 @@ src/
 
 ## 🔗 Resources
 
-| Resource               | URL                                                      |
-| ---------------------- | -------------------------------------------------------- |
-| 🧠 **Development URL** | [https://dev.example.com](https://dev.example.com)       |
-| 🎨 **Figma Design**    | [https://figma.com/file/...](https://figma.com/file/...) |
+| Resource               | URL                                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------------------ |
+| 🧠 **Development URL** | [https://nt-blog-mocha.vercel.app/](https://nt-blog-mocha.vercel.app/)                           |
+| 🎨 **Figma Design**    | [http://figma.com/design/i7aCOzHxtlve2x7ngj0WXa](http://figma.com/design/i7aCOzHxtlve2x7ngj0WXa) |
 
 ---
 
