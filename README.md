@@ -81,23 +81,38 @@ Example folder structure (customize as needed):
 ```
 src/
 ├── app/
+│   ├── globals.css
 │   ├── layout.tsx
 │   ├── page.tsx
+│   ├── not-found.tsx
 │   ├── (routes)/
-│   │   ├── dashboard/
-│   │   ├── settings/
+│   │   ├── post/
+│   │   ├── search/
 │   │   └── ...
+│
+├── assets/
+│   ├── brand/            # branding images (logo, icon)
+│   ├── icons/            # all svg icons
+│   └── images/           # other images
 │
 ├── components/
 │   ├── ui/               # shadcn components
 │   ├── layout/           # header, sidebar, etc.
 │   └── shared/           # reusable components
 │
-├── hooks/                # custom React hooks
 ├── lib/                  # helper functions, API clients
+├── schema/               # typesafe schema interfaces
+│
+├── screens/              # pages
+│   ├── home/
+│   ├── not-found/
+│   └── post-details/
+│   └── search-results/
+│   └── ...
+│
+├── service/              # api calls and configs
 ├── store/                # zustand stores
-├── styles/               # global styles, Tailwind config
-└── types/                # TypeScript interfaces and types
+└── utils/                # utility methods and constants
 ```
 
 ---
