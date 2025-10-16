@@ -10,7 +10,7 @@ import { SearchSection } from '@/components/sections/search/SearchSection'
 import { useArticlesStore } from '@/store/useArticlesStore'
 
 export const HomePage = () => {
-  const { articles, fetchArticles } = useArticlesStore()
+  const { articles, lastArticle, fetchArticles } = useArticlesStore()
 
   useEffect(() => {
     fetchArticles({})
@@ -20,7 +20,7 @@ export const HomePage = () => {
     <div>
       <SearchSection />
       <Categories />
-      <LatestPostSection />
+      <LatestPostSection article={lastArticle} />
       <AllPostsSection title='News posts' articles={articles.slice(1)} />
       <InfoSection />
       <NewsletterSection />

@@ -18,6 +18,7 @@ type ArticleState = {
     q?: string
     category?: TCategories
     page?: number
+    updateLastArticle?: boolean
   }) => Promise<void>
 
   fetchArticleById: (params: { id: string }) => Nullable<Article>
@@ -35,7 +36,12 @@ export const useArticlesStore = create<ArticleState>((set, get) => ({
   isLoading: false,
   error: null,
 
-  fetchArticles: async ({ q = '', category = CATEGORIES.business, page = 1 }) => {
+  fetchArticles: async ({
+    q = '',
+    category = CATEGORIES.business,
+    page = 1,
+    updateLastArticle = true
+  }) => {
     // Weird numbers because of the API :)
     const pageSize = 10
 
@@ -54,11 +60,16 @@ export const useArticlesStore = create<ArticleState>((set, get) => ({
         set({
           // Adding custom id because of the API ( does not provide it )
           articles: articles,
-          lastArticle: articles?.[0],
           totalResults: data.totalResults,
           category,
           page
         })
+
+        if (updateLastArticle) {
+          set({
+            lastArticle: articles?.[0]
+          })
+        }
       } else {
         console.error('Error fetching articles:', data.message)
         set({
@@ -93,6 +104,6 @@ export const useArticlesStore = create<ArticleState>((set, get) => ({
   setPage(page) {
     set({ page })
     const { q, category, fetchArticles } = get()
-    fetchArticles({ q, category, page })
+    fetchArticles({ q, category, page, updateLastArticle: false })
   }
 }))

@@ -17,7 +17,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
 
   return (
     <div className='rounded-[15px] bg-white border-black'>
-      <div className=''>
+      <div>
         {article.urlToImage ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
