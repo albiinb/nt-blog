@@ -6,8 +6,9 @@ import { CATEGORIES, TCategories } from '@/utils/constants'
 
 type ArticleState = {
   articles: Article[]
+  lastArticle: Nullable<Article>
   totalResults: number
-  category: Nullable<TCategories>
+  category: TCategories
   q: string
   page: number
   isLoading: boolean
@@ -20,20 +21,23 @@ type ArticleState = {
   }) => Promise<void>
 
   fetchArticleById: (params: { id: string }) => Nullable<Article>
+  setCategory: (category: TCategories) => void
+  setPage: (page: number) => void
 }
 
 export const useArticlesStore = create<ArticleState>((set, get) => ({
   articles: [],
+  lastArticle: null,
   totalResults: 0,
-  category: CATEGORIES.general,
+  category: CATEGORIES.business,
   q: '',
   page: 1,
   isLoading: false,
   error: null,
 
-  fetchArticles: async ({ q = '', category = CATEGORIES.general, page = 1 }) => {
+  fetchArticles: async ({ q = '', category = CATEGORIES.business, page = 1 }) => {
     // Weird numbers because of the API :)
-    const pageSize = page === 1 ? 13 : 12
+    const pageSize = 10
 
     set({ isLoading: true })
 
@@ -46,9 +50,11 @@ export const useArticlesStore = create<ArticleState>((set, get) => ({
       })
 
       if (data.status === 'ok') {
+        const articles = data.articles.map((article) => ({ ...article, id: v4() }))
         set({
           // Adding custom id because of the API ( does not provide it )
-          articles: data.articles.map((article) => ({ ...article, id: v4() })),
+          articles: articles,
+          lastArticle: articles?.[0],
           totalResults: data.totalResults,
           category,
           page
@@ -76,5 +82,17 @@ export const useArticlesStore = create<ArticleState>((set, get) => ({
       return article
     }
     return null
+  },
+
+  setCategory(category) {
+    set({ category, page: 1 })
+    const { q, page, fetchArticles } = get()
+    fetchArticles({ q, category, page })
+  },
+
+  setPage(page) {
+    set({ page })
+    const { q, category, fetchArticles } = get()
+    fetchArticles({ q, category, page })
   }
 }))
