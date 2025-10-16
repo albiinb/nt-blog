@@ -13,7 +13,7 @@ export const Categories = () => {
 
   return (
     <Container>
-      <div className='flex justify-start items-center gap-4 my-[15px]'>
+      <div className='flex justify-start items-center gap-4 my-[15px] px-[20px] sm:px-[0px]'>
         {Object.values(CATEGORIES).map((category) => (
           <Button
             key={category}

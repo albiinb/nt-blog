@@ -13,18 +13,16 @@ interface Props {
 
 export const AllPostsSection: FC<Props> = ({ title, articles }) => {
   return (
-    <>
-      <div className='my-[15px] px-[30px] sm:px-auto'>
-        <Container>
-          <h1 className='font-[700] text-antracite text-[32px] mb-[30px]'>{title}</h1>
-          <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
-            {articles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
-        </Container>
-      </div>
+    <div className='my-[15px] sm:px-auto px-[20px] sm:px-[0px]'>
+      <Container>
+        <h1 className='font-[700] text-antracite text-[32px] mb-[30px]'>{title}</h1>
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+          {articles.map((article) => (
+            <ArticleCard key={article.id} article={article} />
+          ))}
+        </div>
+      </Container>
       {!!articles.length && <Pagination />}
-    </>
+    </div>
   )
 }
