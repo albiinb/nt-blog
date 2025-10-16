@@ -8,7 +8,7 @@ export const PostDetailsPage = ({ id }: { id: string }) => {
       <Breadcrumb />
       <h1>This is Post Details Page: {id}</h1>
       <AuthorSection />
-      <InfoSection />
+      <InfoSection theme='dark' />
     </div>
   )
 }

@@ -12,7 +12,7 @@ const validationSchema = validate({
 })
 
 export const NewsletterSection = () => {
-  const [successModalOpen, setSuccessModalOpen] = useState<boolean>(true)
+  const [successModalOpen, setSuccessModalOpen] = useState<boolean>(false)
   const [initialValues, setInitialValues] = useState<{ email: string }>({ email: '' })
 
   const onSubmit = (values: { email: string }) => {
@@ -27,7 +27,7 @@ export const NewsletterSection = () => {
 
   return (
     <>
-      <div className='bg-dark-blue py-[70px] text-center text-white border-t-6 border-primary'>
+      <div className='bg-dark-blue py-[80px] sm:py-[120px] text-center text-white border-t-6 border-primary'>
         <Container>
           <div className='p-[20px] sm:p-0'>
             <h1 className='font-[700] text-[32px] sm:text-[48px]'>
@@ -48,7 +48,7 @@ export const NewsletterSection = () => {
                           name='email'
                           label='Email address'
                           disabled={isSubmitting}
-                          style={{ width: '400px' }}
+                          style={{ width: '400px', height: '40px' }}
                         />
                         <div className='static sm:absolute sm:right-[-59px] sm:top-0 '>
                           <Button

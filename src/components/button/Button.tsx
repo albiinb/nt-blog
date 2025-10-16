@@ -19,7 +19,7 @@ export const Button: FC<IButtonProps> = ({
   children,
   className,
   variant,
-  size,
+  size = 'lg',
   disabled,
   full,
   icon,
@@ -32,7 +32,7 @@ export const Button: FC<IButtonProps> = ({
       type={type}
       size={size}
       disabled={disabled}
-      className={`${className} rounded-[55px] cursor-pointer ${full ? 'w-full' : ''}`}
+      className={`${className} rounded-[55px] px-[24px] cursor-pointer ${full ? 'w-full' : ''}`}
     >
       {typeof children === 'string' && !icon ? (
         <span className='font-[700] text-[16px]'>{children}</span>
