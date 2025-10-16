@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '../button/Button'
+import { Image } from '../image/Image'
 import { Article } from '@/schema/types'
 import { Icons } from '@/utils/icons'
 
@@ -17,26 +18,11 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
 
   return (
     <div className='rounded-[15px] bg-white border-black'>
-      <div>
-        {article.urlToImage ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            alt='Post image'
-            src={article.urlToImage}
-            className='w-full h-[220px] object-cover rounded-t-[15px]'
-          />
-        ) : (
-          <div
-            className='bg-gray w-full h-[220px] rounded-t-[15px] flex justify-center items-center text-center'
-            style={{ background: '#E1E1E1' }}
-          >
-            <div>
-              <p className='text-gray font-[700] text-[16px]'>BODY IMAGE</p>
-              <p className='text-gray font-[700] text-[16px]'>PLACEHOLDER FRAME</p>
-            </div>
-          </div>
-        )}
-      </div>
+      <Image
+        src={article.urlToImage}
+        alt='Article cover image'
+        sizeClassName='w-full h-[220px] rounded-t-[15px]'
+      />
       <div className='border border-t-0 border-black rounded-b-[15px] relative'>
         <div
           className='bg-primary rounded-e-[10px] p-[8px] max-w-[100px]'
