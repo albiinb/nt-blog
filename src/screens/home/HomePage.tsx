@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const HomePage: FC<Props> = ({ searchParams }) => {
-  const { setCategory, setPage, setQuery } = useArticlesStore()
+  const { setCategory, setPage } = useArticlesStore()
   const { data: articles, isLoading } = useArticles()
 
   const categoryQuery = searchParams.get('category')
@@ -26,8 +26,7 @@ export const HomePage: FC<Props> = ({ searchParams }) => {
   useEffect(() => {
     setCategory(mapCategoryQuery(categoryQuery))
     setPage(mapPageQuery(pageQuery))
-    if (!categoryQuery) setQuery('')
-  }, [categoryQuery, pageQuery, setCategory, setPage, setQuery])
+  }, [categoryQuery, pageQuery, setCategory, setPage])
 
   return (
     <div>

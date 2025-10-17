@@ -33,6 +33,6 @@ export const searchArticles = async ({
   pageSize
 }: SearchArticles): Promise<AxiosResponse<ArticlesResponse>> => {
   return await instance.get<ArticlesResponse>(
-    `v2/everything?q=${query}&page=${page}&pageSize=${pageSize}&from=${dateBefore10Days}`
+    `v2/everything?q=${query}&qInTitle=${query}&page=${page}&pageSize=${pageSize}&from=${dateBefore10Days}`
   )
 }

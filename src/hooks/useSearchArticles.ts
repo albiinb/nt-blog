@@ -11,22 +11,19 @@ export const useSearchArticles = () => {
   const queryKey = ['articles', 'search', query, page]
 
   const queryFn = async () => {
-    try {
-      const res = await searchArticles({ query, page, pageSize: PAGE_SIZE })
+    const res = await searchArticles({ query, page, pageSize: PAGE_SIZE })
 
-      if (res.data.status === 'ok') {
-        setTotalResults(res.data.totalResults)
-        return res.data.articles.map((article) => ({ ...article, id: v4() }))
-      } else {
-        showError(res?.data?.message)
-      }
-    } catch (error: any) {
-      showError(error?.response?.data?.message)
+    if (res.data.status === 'ok') {
+      setTotalResults(res.data.totalResults)
+      return res.data.articles.map((article) => ({ ...article, id: v4() }))
+    } else {
+      showError(res?.data?.message)
     }
   }
 
   return useQuery({
     queryKey,
-    queryFn
+    queryFn,
+    enabled: query.trim() !== ''
   })
 }

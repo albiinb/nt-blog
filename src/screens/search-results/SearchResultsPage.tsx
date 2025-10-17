@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const SearchResultsPage: FC<Props> = ({ searchParams }) => {
-  const { setQuery, setPage } = useArticlesStore()
+  const { query, setQuery, setPage } = useArticlesStore()
   const { data: articles, isLoading } = useSearchArticles()
 
   const searchQuery = searchParams.get('query')
@@ -28,7 +28,7 @@ export const SearchResultsPage: FC<Props> = ({ searchParams }) => {
   return (
     <div>
       <AllPostsSection
-        title={`Search results: ${searchQuery}`}
+        title={`Search results: ${query}`}
         articles={articles}
         isLoading={isLoading}
       />

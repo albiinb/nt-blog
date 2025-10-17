@@ -39,7 +39,7 @@ export const Pagination = () => {
 
   return (
     <Container>
-      <div className='flex justify-between items-center my-[15px]'>
+      <div className='flex justify-between items-center my-[15px] overflow-x-auto'>
         <div>
           <Button
             variant='ghost'

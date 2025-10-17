@@ -34,7 +34,7 @@ export const LatestPostSection: FC<LastPostSectionProps> = ({ article, isLoading
     <>
       {article && (
         <Container>
-          <div className='bg-pastel-blue border border-gray rounded-[20px] my-[15px] mx-[20px] sm:mx-[0px] px-[20px] py-[40px] sm:px-[80px] sm:py-[40px]'>
+          <div className='bg-pastel-blue border border-border-gray rounded-[20px] my-[15px] mx-[20px] sm:mx-[0px] px-[20px] py-[40px] sm:px-[80px] sm:py-[40px]'>
             <div className='flex flex-col-reverse sm:flex-row  justify-center items-center gap-5'>
               <div className='flex-1'>
                 <Image

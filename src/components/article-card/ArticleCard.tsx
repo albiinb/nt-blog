@@ -17,13 +17,13 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
   }
 
   return (
-    <div className='rounded-[15px] bg-white border-black'>
+    <div className='rounded-[15px] bg-white'>
       <Image
         src={article.urlToImage}
         alt='Article cover image'
         sizeClassName='w-full h-[220px] rounded-t-[15px]'
       />
-      <div className='border border-t-0 border-black rounded-b-[15px] relative'>
+      <div className='border border-t-0 border-border-gray rounded-b-[15px] relative'>
         <div
           className='bg-primary rounded-e-[10px] p-[8px] max-w-[100px]'
           style={{ position: 'absolute', top: -20, left: -1 }}

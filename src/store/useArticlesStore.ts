@@ -18,7 +18,9 @@ export const useArticlesStore = create<ArticleUIState>((set) => ({
   page: 1,
   totalResults: 0,
   setCategory: (category) => set({ category, page: 1 }),
-  setQuery: (query) => set({ query, page: 1 }),
+  setQuery: (query) => {
+    set({ query, page: 1 })
+  },
   setPage: (page) => set({ page }),
   setTotalResults: (totalResults) => set({ totalResults })
 }))

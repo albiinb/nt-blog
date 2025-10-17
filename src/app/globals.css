@@ -7,6 +7,7 @@
   --color-antracite: var(--antracite);
   --color-gray: var(--gray);
   --color-dark-gray: var(--dark-gray);
+  --color-border-gray: var(--border-gray);
   --color-light: var(--light);
   --color-light-purple: var(--light-purple);
   --color-midnight-blue: var(--midnight-blue);
@@ -55,6 +56,7 @@
   --antracite: #1e1e1e;
   --gray: #838a90;
   --dark-gray: #838a90;
+  --border-gray: #a8a8a8;
   --light: #f0f2f7;
   --light-purple: #ddddfd;
   --midnight-blue: #0a0a2b;
@@ -98,6 +100,7 @@
   --antracite: #1e1e1e;
   --gray: #838a90;
   --dark-gray: #838a90;
+  --border-gray: #a8a8a8;
   --light: #f0f2f7;
   --light-purple: #ddddfd;
   --midnight-blue: #0a0a2b;

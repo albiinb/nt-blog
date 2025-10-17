@@ -24,7 +24,7 @@ export const Categories = () => {
 
   return (
     <Container>
-      <div className='flex justify-start items-center gap-4 my-[15px] px-[20px] sm:px-[0px]'>
+      <div className='flex justify-start items-center gap-4 my-[15px] px-[20px] sm:px-[0px] overflow-x-auto'>
         {Object.values(CATEGORIES).map((c) => (
           <Button
             key={c}
