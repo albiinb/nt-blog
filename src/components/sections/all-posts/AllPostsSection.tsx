@@ -6,7 +6,6 @@ import { Container } from '@/components/container/Container'
 import { Pagination } from '@/components/pagination/Pagination'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Article } from '@/schema/types'
-import { useArticlesStore } from '@/store/useArticlesStore'
 
 interface Props {
   title: string
@@ -15,8 +14,6 @@ interface Props {
 }
 
 export const AllPostsSection: FC<Props> = ({ title, articles, isLoading }) => {
-  const { setPage } = useArticlesStore()
-
   return (
     <div className='my-[15px] sm:px-auto px-[20px] sm:px-[0px]'>
       <Container>
@@ -32,7 +29,7 @@ export const AllPostsSection: FC<Props> = ({ title, articles, isLoading }) => {
             ))}
         </div>
       </Container>
-      {!!articles?.length && <Pagination onSetPage={setPage} />}
+      {!!articles?.length && <Pagination />}
     </div>
   )
 }
