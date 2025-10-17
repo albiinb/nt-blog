@@ -1,14 +1,17 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { FC, useEffect } from 'react'
+import { ReadonlyURLSearchParams } from 'next/navigation'
 import { AllPostsSection } from '@/components/sections/all-posts/AllPostsSection'
 import { useSearchArticles } from '@/hooks/useSearchArticles'
 import { useArticlesStore } from '@/store/useArticlesStore'
 import { mapPageQuery } from '@/utils/utils'
 
-export const SearchResultsPage = () => {
-  const searchParams = useSearchParams()
+interface Props {
+  searchParams: ReadonlyURLSearchParams
+}
+
+export const SearchResultsPage: FC<Props> = ({ searchParams }) => {
   const { setQuery, setPage } = useArticlesStore()
   const { data: articles, isLoading } = useSearchArticles()
 

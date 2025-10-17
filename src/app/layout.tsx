@@ -2,7 +2,6 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useState } from 'react'
-import type { Metadata } from 'next'
 import { Geist_Mono, Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
 import { Footer } from '@/components/layout/footer/Footer'
@@ -19,11 +18,6 @@ const geistMonoFont = Geist_Mono({
   subsets: ['latin']
 })
 
-// export const metadata: Metadata = {
-//   title: 'Native Teams Blog',
-//   description: 'A Next.js Blog app'
-// }
-
 export default function RootLayout({
   children
 }: Readonly<{
@@ -36,6 +30,7 @@ export default function RootLayout({
       <head>
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+        <title>Native Teams Blog</title>
       </head>
       <body className={`${interFont.variable} ${geistMonoFont.variable} antialiased`}>
         <QueryClientProvider client={queryClient}>

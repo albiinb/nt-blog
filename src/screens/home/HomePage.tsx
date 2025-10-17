@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { FC, useEffect } from 'react'
+import { ReadonlyURLSearchParams } from 'next/navigation'
 import { Categories } from '@/components/categories/Categories'
 import { AllPostsSection } from '@/components/sections/all-posts/AllPostsSection'
 import { InfoSection } from '@/components/sections/info/InfoSection'
@@ -12,8 +12,11 @@ import { useArticles } from '@/hooks/useArticles'
 import { useArticlesStore } from '@/store/useArticlesStore'
 import { mapCategoryQuery, mapPageQuery } from '@/utils/utils'
 
-export const HomePage = () => {
-  const searchParams = useSearchParams()
+interface Props {
+  searchParams: ReadonlyURLSearchParams
+}
+
+export const HomePage: FC<Props> = ({ searchParams }) => {
   const { setCategory, setPage, setQuery } = useArticlesStore()
   const { data: articles, isLoading } = useArticles()
 
