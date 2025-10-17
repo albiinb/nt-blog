@@ -8,4 +8,4 @@ export const CATEGORIES = {
   technology: 'technology'
 } as const
 
-export type TCategories = keyof typeof CATEGORIES
+export type TCategory = keyof typeof CATEGORIES

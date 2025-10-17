@@ -1,26 +1,37 @@
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/button/Button'
 import { Container } from '@/components/container/Container'
 import { useArticlesStore } from '@/store/useArticlesStore'
-import { CATEGORIES, TCategories } from '@/utils/constants'
+import { CATEGORIES, TCategory } from '@/utils/constants'
 import { capitalizeFirstLetter } from '@/utils/utils'
 
 export const Categories = () => {
-  const { category: selectedCategory, setCategory } = useArticlesStore()
+  const { setCategory, category } = useArticlesStore()
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
-  const onChangeCategory = (category: TCategories) => {
+  const updateCategoryParam = (category: string) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('category', category)
+    params.delete('page')
+    router.push(`?${params.toString()}`)
+  }
+
+  const onChangeCategory = (category: TCategory) => {
     setCategory(category)
+    updateCategoryParam(category)
   }
 
   return (
     <Container>
       <div className='flex justify-start items-center gap-4 my-[15px] px-[20px] sm:px-[0px]'>
-        {Object.values(CATEGORIES).map((category) => (
+        {Object.values(CATEGORIES).map((c) => (
           <Button
-            key={category}
-            onClick={() => onChangeCategory(category)}
-            variant={category === selectedCategory ? 'default' : 'secondary'}
+            key={c}
+            onClick={() => onChangeCategory(c)}
+            variant={c === category ? 'default' : 'secondary'}
           >
-            {capitalizeFirstLetter(category)}
+            {capitalizeFirstLetter(c)}
           </Button>
         ))}
       </div>

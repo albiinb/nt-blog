@@ -1,29 +1,15 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
 import { Breadcrumb } from '@/components/breadcrumb/Breadcrumb'
 import { Container } from '@/components/container/Container'
 import { Image } from '@/components/image/Image'
 import { AuthorSection } from '@/components/sections/author/AuthorSection'
 import { InfoSection } from '@/components/sections/info/InfoSection'
-import { Article } from '@/schema/types'
-import { useArticlesStore } from '@/store/useArticlesStore'
+import { useArticleById } from '@/hooks/useArticleById'
 import { formatDateLong } from '@/utils/utils'
 
 export const PostDetailsPage = ({ id }: { id: string }) => {
-  const { fetchArticleById } = useArticlesStore()
-  const [article, setArticle] = useState<Article>()
-
-  const fetchData = useCallback(() => {
-    const article = fetchArticleById({ id })
-    if (article) {
-      setArticle(article)
-    }
-  }, [id, fetchArticleById])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
+  const { data: article } = useArticleById(id)
 
   return (
     <>
